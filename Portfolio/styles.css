@@ -1,0 +1,740 @@
+:root {
+    --primary: #FF9A9E;    /* 柔和粉紅 */
+    --secondary: #FFDAB9;  /* 蜜桃色 */
+    --accent: #FFB6C1;    /* 淺粉紅 */
+    --gradient-1: linear-gradient(135deg, #FF9A9E, #FFDAB9);
+    --gradient-2: linear-gradient(45deg, #FFB6C1, #FFA07A);
+    --text-dark: #4A4A4A;
+    --text-light: #FFFFFF;
+    --background: #FFF5F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background);
+}
+
+/* 導航欄樣式 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--gradient-2);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.nav-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* 導航按鈕樣式 */
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-buttons button {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: white;
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+}
+
+/* 下拉選單樣式 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background: var(--gradient-2);
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown:hover .dropbtn {
+    background: white;
+    color: var(--primary);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.dropdown-item .icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: 12px;
+    color: white;
+}
+
+.item-text h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text);
+}
+
+.item-text p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* 主頁區域樣式 */
+.hero {
+    height: 80vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: var(--gradient-1);
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+.hero-content {
+    text-align: center;
+    animation: fadeInUp 1s ease;
+    color: white;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.title-separator {
+    width: 80px;
+    height: 4px;
+    background: white;
+    margin: 2rem auto;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1s;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* 浮動形狀動畫 */
+.floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    background: var(--gradient-2);
+    opacity: 0.1;
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    animation: float 20s infinite;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    left: -150px;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    right: 10%;
+    top: 40%;
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    left: 20%;
+    bottom: 20%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(50px, 50px);
+    }
+    50% {
+        transform: translate(100px, 0);
+    }
+    75% {
+        transform: translate(50px, -50px);
+    }
+}
+
+/* 作品展示區樣式 */
+.works {
+    padding: 6rem 2rem;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.work-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.1);
+}
+
+.work-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-overlay {
+    transform: translateY(0);
+}
+
+.work-overlay h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.work-overlay p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.view-more {
+    color: var(--accent-3);
+    font-size: 0.9rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease 0.2s;
+}
+
+.work-item:hover .work-overlay h3,
+.work-item:hover .work-overlay p,
+.work-item:hover .view-more {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* 添加載入動畫 */
+@keyframes workItemFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.work-item {
+    animation: workItemFadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.work-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.work-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* 響應式調整 */
+@media (max-width: 992px) {
+    .works-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .works-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .work-item {
+        aspect-ratio: 16/9;
+    }
+}
+
+/* 關於我區域樣式 */
+.about {
+    padding: 4rem 0;
+    margin-bottom: 4rem;
+}
+
+.about-container {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+.about-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+}
+
+.detail-icon {
+    font-size: 2rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.detail-text h3 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.detail-text p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 2rem;
+    }
+
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 添加動畫效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.work-item, .about-container {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* 添加一些裝飾元素 */
+.works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="rgba(78,205,196,0.1)"/></svg>');
+    background-size: 100px 100px;
+    opacity: 0.5;
+}
+
+/* 添加平滑滾動效果 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 更新導航按鈕樣式 */
+.nav-buttons a {
+    text-decoration: none;
+}
+
+/* 簡介區域樣式 */
+.intro {
+    padding: 4rem 0;
+    margin-bottom: 4rem;
+}
+
+.intro-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro-container h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.intro-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-1);
+    border-radius: 2px;
+}
+
+.intro-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+/* 技能條樣式 */
+.skills {
+    margin-top: 2rem;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-item span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.skill-bar {
+    height: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: var(--gradient-1);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* 確保每個section都有足夠的高度 */
+#home, #intro, #works, #about {
+    min-height: 100vh;
+    padding-top: 80px; /* 為導航欄留出空間 */
+}
+
+/* 固定導航欄 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .intro-container {
+        padding: 2rem;
+    }
+    
+    .nav-buttons button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 音樂控制按鈕 */
+#musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,105,180,0.3);
+    z-index: 1000;
+}
+
+#musicToggle.playing .music-off {
+    display: none;
+}
+
+#musicToggle:not(.playing) .music-on {
+    display: none;
+}
+
+#musicToggle:hover {
+    transform: scale(1.1);
+}
+
+/* 裝飾元素 */
+.decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 20s infinite ease-in-out;
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 50px;
+    right: -30px;
+    animation-delay: -5s;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, 10px) rotate(5deg); }
+    50% { transform: translate(20px, 0) rotate(10deg); }
+    75% { transform: translate(10px, -10px) rotate(5deg); }
+}
+
+/* 關於我區域樣式更新 */
+.about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-photo {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-photo::before {
+    content: '';
+    display: block;
+    padding-top: 125%; /* 4:5 的比例 */
+}
+
+.about-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.about-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* 響應式調整 */
+@media (max-width: 968px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+        max-width: 300px;
+        margin: 0 auto 2rem;
+    }
+} 

@@ -1,0 +1,367 @@
+/* 咖啡廳風格變量 */
+:root {
+    --coffee-dark: #3C2F2F;
+    --coffee-medium: #6F4E37;
+    --coffee-light: #C4A484;
+    --cream: #FFF5E6;
+    --accent: #D4AF37;
+}
+
+body {
+    background: var(--cream);
+    font-family: 'Playfair Display', 'Noto Sans TC', serif;
+    color: var(--coffee-dark);
+}
+
+/* 入場動畫樣式 */
+.loading-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 1s ease;
+}
+
+.coffee-machine {
+    width: 200px;
+    height: 300px;
+    position: relative;
+}
+
+.coffee-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coffee-stream {
+    width: 4px;
+    height: 100px;
+    background: var(--coffee-dark);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pourCoffee 3s infinite;
+}
+
+.coffee-cup {
+    width: 80px;
+    height: 100px;
+    background: white;
+    border: 4px solid var(--coffee-dark);
+    border-radius: 0 0 40px 40px;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coffee-liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: var(--coffee-dark);
+    border-radius: 0 0 35px 35px;
+    animation: fillCup 3s ease-in-out infinite;
+}
+
+.steam {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.steam span {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: var(--coffee-light);
+    opacity: 0;
+}
+
+.steam span:nth-child(1) {
+    animation: steam 2s ease-out infinite;
+}
+
+.steam span:nth-child(2) {
+    animation: steam 2s ease-out 0.6s infinite;
+    left: 10px;
+}
+
+.steam span:nth-child(3) {
+    animation: steam 2s ease-out 1.2s infinite;
+    left: -10px;
+}
+
+/* 主要內容樣式 */
+.content-wrapper {
+    padding-top: 80px;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.content-wrapper.hidden {
+    opacity: 0;
+}
+
+.project-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="2" fill="%23C4A484" opacity="0.1"/></svg>') var(--cream);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* 動畫關鍵幀 */
+@keyframes pourCoffee {
+    0% { height: 0; top: 30%; }
+    50% { height: 100px; top: 50%; }
+    100% { height: 0; top: 30%; }
+}
+
+@keyframes fillCup {
+    0% { height: 0; }
+    50% { height: 80%; }
+    100% { height: 0; }
+}
+
+@keyframes steam {
+    0% { transform: translateY(0) scaleX(1); opacity: 0; }
+    15% { opacity: 1; }
+    50% { transform: translateY(-20px) scaleX(3); opacity: 0.5; }
+    100% { transform: translateY(-40px) scaleX(1); opacity: 0; }
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .project-content {
+        padding: 1rem;
+    }
+}
+
+/* 更新圖片樣式 */
+.project-main-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.project-main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(60, 47, 47, 0.8);
+    color: var(--cream);
+    padding: 1rem;
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* 更新字體樣式 */
+.project-header h1,
+.project-description h2,
+.project-gallery h2,
+.project-process h2,
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', 'Noto Sans TC', serif;
+    color: var(--coffee-dark);
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-description h2,
+.project-gallery h2,
+.project-process h2 {
+    font-size: 2rem;
+    color: var(--coffee-medium);
+    margin: 3rem 0 2rem;
+}
+
+.project-meta {
+    text-align: center;
+    color: var(--coffee-medium);
+    margin-bottom: 3rem;
+}
+
+/* 添加底部導航 */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 2px solid var(--coffee-light);
+}
+
+.project-navigation a {
+    text-decoration: none;
+    color: var(--coffee-dark);
+    padding: 1rem 2rem;
+    border: 2px solid var(--coffee-medium);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.project-navigation a:hover {
+    background: var(--coffee-medium);
+    color: var(--cream);
+}
+
+/* 調整特色展示區塊 */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    background: rgba(196, 164, 132, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--coffee-light);
+    text-align: center;
+}
+
+.feature-item h3 {
+    color: var(--coffee-dark);
+    font-family: 'Playfair Display', 'Noto Sans TC', serif;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project-description p,
+.project-description ul,
+.feature-item p,
+.gallery-item p,
+.process-item p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.project-description ul {
+    list-style-position: inside;
+    padding: 0;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.feature-item h3 {
+    text-align: center;
+}
+
+/* 設計過程區塊樣式 */
+.process-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.process-item {
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--coffee-light);
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.process-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(111, 78, 55, 0.1);
+}
+
+.process-item h3 {
+    color: var(--coffee-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', 'Noto Sans TC', serif;
+}
+
+.process-item p {
+    color: var(--coffee-medium);
+}
+
+/* 添加連接線 */
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: var(--coffee-light);
+    z-index: -1;
+}
+
+/* 區塊間距調整 */
+.project-description,
+.project-gallery,
+.project-process {
+    margin: 5rem 0;
+    padding: 3rem 0;
+    border-top: 2px dashed var(--coffee-light);
+} 

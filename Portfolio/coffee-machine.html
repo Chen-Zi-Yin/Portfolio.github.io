@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google概念咖啡機 - 作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="coffee-machine.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <audio id="bgMusic" loop>
+        <source src="./video/sentimental-piano-162200.mp3" type="audio/mp3">
+    </audio>
+</head>
+<body>
+    <!-- 入場動畫 -->
+    <div class="loading-animation">
+        <div class="coffee-machine">
+            <div class="coffee-container">
+                <div class="coffee-stream"></div>
+                <div class="coffee-cup">
+                    <div class="coffee-liquid"></div>
+                    <div class="steam">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <div class="content-wrapper hidden">
+        <nav class="top-nav">
+            <div class="nav-heading">Google概念咖啡機</div>
+            <div class="nav-buttons">
+                <a href="index.html"><button>返回首頁</button></a>
+            </div>
+        </nav>
+
+        <main class="project-content">
+            <header class="project-header">
+                <h1>Google概念咖啡機設計</h1>
+                <div class="project-meta">
+                    <span>設計時間：2024</span>
+                    <span>專案類型：產品設計</span>
+                </div>
+            </header>
+
+            <section class="project-showcase">
+                <div class="project-main-image">
+                    <img src="./img/img1.jpg" alt="Google咖啡機完整展示">
+                </div>
+                <div class="project-description">
+                    <h2>專案概述</h2>
+                    <p>這是一款以 Google 品牌為靈感的智能咖啡機設計。融合了現代科技與咖啡文化，打造出一個既實用又富有美感的咖啡體驗</p>
+                    
+                    <h2>設計理念</h2>
+                    <ul>
+                        <li>簡約現代的外觀設計</li>
+                        <li>智能操作介面</li>
+                        <li>環保節能考量</li>
+                    </ul>
+
+                    <h2>技術特點</h2>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h3>智能控制</h3>
+                            <p>透過手機APP遠端操控</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>節能設計</h3>
+                            <p>智能休眠模式</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>個人化設定</h3>
+                            <p>自訂咖啡濃度與溫度</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-gallery">
+                <h2>設計細節展示</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="./img/img2.jpg" alt="操作介面設計">
+                        <p>智能觸控介面</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./img/img5.jpg" alt="結構設計">
+                        <p>模組化結構</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./img/img6.jpg" alt="材質展示">
+                        <p>環保材質應用</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-process">
+                <h2>設計過程</h2>
+                <div class="process-timeline">
+                    <div class="process-item">
+                        <h3>需求分析</h3>
+                        <p>研究使用者需求與市場趨勢</p>
+                    </div>
+                    <div class="process-item">
+                        <h3>概念發展</h3>
+                        <p>草圖設計與3D建模</p>
+                    </div>
+                    <div class="process-item">
+                        <h3>細節優化</h3>
+                        <p>功能測試與外觀調整</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="project-navigation">
+            <a href="manga.html">← 上一個作品</a>
+            <a href="board-game.html">下一個作品 →</a>
+        </div>
+
+        <button id="musicToggle" class="control-btn" title="音樂控制">
+            <span class="music-on">🎵</span>
+            <span class="music-off">🔇</span>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            const loadingAnimation = document.querySelector('.loading-animation');
+            const contentWrapper = document.querySelector('.content-wrapper');
+            
+            // 立即播放音樂
+            bgMusic.play().then(() => {
+                musicToggle.classList.add('playing');
+            }).catch(() => {
+                console.log('自動播放被阻擋');
+            });
+            
+            // 入場動畫控制
+            setTimeout(() => {
+                loadingAnimation.style.opacity = '0';
+                contentWrapper.classList.remove('hidden');
+                setTimeout(() => {
+                    loadingAnimation.style.display = 'none';
+                }, 1000);
+            }, 3000);
+
+            // 音樂控制
+            musicToggle.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicToggle.classList.add('playing');
+                } else {
+                    bgMusic.pause();
+                    musicToggle.classList.remove('playing');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

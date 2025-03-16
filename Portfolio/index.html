@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姿吟的作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <audio id="bgMusic" loop>
+        <source src="./video/coffee-215776.mp3" type="audio/mp3">
+    </audio>
+</head>
+<body>
+    <!-- 頂部導航條 -->
+    <nav class="top-nav">
+        <div class="nav-heading">姿吟的作品集</div>
+        <div class="nav-buttons">
+            <a href="#home"><button>主頁</button></a>
+            <a href="#intro"><button>簡介</button></a>
+            <div class="dropdown">
+                <button class="dropbtn">作品</button>
+                <div class="dropdown-content">
+                    <a href="coffee-machine.html">Google概念咖啡機</a>
+                    <a href="board-game.html">創新互動桌遊</a>
+                    <a href="manga.html">漫畫英雄畫作</a>
+                </div>
+            </div>
+            <a href="#about"><button>關於我</button></a>
+        </div>
+    </nav>
+
+    <!-- 主頁區域 -->
+    <div class="page-container">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="main-title">姿吟的作品集</h1>
+                <p class="subtitle">探索創意 • 實現想像</p>
+            </div>
+            <div class="decorative-elements">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+        </section>
+
+        <!-- 簡介區域 -->
+        <section id="intro" class="intro">
+            <div class="intro-container">
+                <h2>簡介</h2>
+                <div class="intro-content">
+                    <p>以下是我在大學三年期間精心挑選的作品集，展現了我對設計的熱情與創新思維。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <button id="musicToggle" class="control-btn" title="音樂控制">
+        <span class="music-on">🎵</span>
+        <span class="music-off">🔇</span>
+    </button>
+
+        <!-- 作品展示區 -->
+        <section id="works" class="works">
+            <h2 class="section-title">精選作品</h2>
+            <div class="works-container">
+                <a href="coffee-machine.html" class="work-item">
+                    <div class="work-image">
+                        <img src="./img/img1.jpg" alt="Google概念咖啡機">
+                        <div class="work-overlay">
+                            <h3>Google概念咖啡機</h3>
+                            <p>智能咖啡機設計與互動體驗</p>
+                            <span class="view-more">查看更多</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="board-game.html" class="work-item">
+                    <div class="work-image">
+                        <img src="./img/img3.jpg" alt="桌遊設計">
+                        <div class="work-overlay">
+                            <h3>桌遊設計</h3>
+                            <p>創新互動桌遊體驗</p>
+                            <span class="view-more">查看更多</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="manga.html" class="work-item">
+                    <div class="work-image">
+                        <img src="./img/img8.jpeg" alt="圖畫">
+                        <div class="work-overlay">
+                            <h3>麥克筆畫</h3>
+                            <p>dc及漫威的麥克筆畫</p>
+                            <span class="view-more">查看更多</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            
+            // 音樂控制
+            musicToggle.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicToggle.classList.add('playing');
+                } else {
+                    bgMusic.pause();
+                    musicToggle.classList.remove('playing');
+                }
+            });
+
+            // 初始自動播放
+            bgMusic.play().catch(() => {
+                console.log('自動播放被阻擋');
+            });
+        });
+    </script>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <h2 class="section-title">關於我</h2>
+            <div class="about-content">
+                <div class="about-grid">
+                    <div class="about-photo">
+                        <img src="./img/20220516_151118-COLLAGE~2.jpg" alt="個人照片">
+                    </div>
+                    <div class="about-text">
+                        <p>我是姿吟，一位充滿熱情的設計師。在大學期間，我專注於產品設計與互動體驗的研究，致力於將創意轉化為實際的作品。</p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">🎨</span>
+                                <div class="detail-text">
+                                    <h3>設計理念</h3>
+                                    <p>以使用者體驗為核心，創造富有意義的互動設計</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💡</span>
+                                <div class="detail-text">
+                                    <h3>專業領域</h3>
+                                    <p>產品設計、互動設計、視覺創作</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 

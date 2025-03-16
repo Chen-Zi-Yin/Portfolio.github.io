@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漫畫英雄畫作 - 作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="manga.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <audio id="bgMusic" loop>
+        <source src="./video/soulsweeper-252499.mp3" type="audio/mp3">
+    </audio>
+</head>
+<body>
+    <!-- 入場動畫 -->
+    <div class="loading-animation">
+        <div class="comic-panel">
+            <div class="boom">BOOM!</div>
+            <div class="pow">POW!</div>
+            <div class="zap">ZAP!</div>
+            <div class="bang">BANG!</div>
+            <div class="splash">SPLASH!</div>
+            <div class="comic-stars"></div>
+        </div>
+    </div>
+
+    <!-- 主要內容 -->
+    <div class="content-wrapper hidden">
+        <nav class="top-nav">
+            <div class="nav-heading">漫畫英雄畫作</div>
+            <div class="nav-buttons">
+                <a href="index.html"><button>返回首頁</button></a>
+            </div>
+        </nav>
+
+        <main class="project-content">
+            <header class="project-header">
+                <h1>DC & Marvel 英雄系列</h1>
+                <div class="project-meta">
+                    <span>創作時間：2023</span>
+                    <span>媒材：麥克筆、鋼筆</span>
+                </div>
+            </header>
+
+            <section class="artwork-showcase">
+                <div class="artwork-slider">
+                    <div class="artwork-slide active">
+                        <div class="artwork-content">
+                            <img src="./img/img8.jpeg" alt="小丑">
+                            <div class="artwork-info">
+                                <h3>黑暗騎士 - 小丑</h3>
+                                <p>混亂的化身，永恆的對立。是蝙蝠俠最具代表性的宿敵，他代表了瘋狂與無序，是一個複雜而迷人的反派角色。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artwork-slide">
+                        <div class="artwork-content">
+                            <img src="./img/img9.jpeg" alt="鋼鐵人">
+                            <div class="artwork-info">
+                                <h3>鋼鐵人</h3>
+                                <p>天才、億萬富翁、慈善家。東尼史塔克不僅是一個科技天才，更是一個不斷成長和自我救贖的英雄。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artwork-slide">
+                        <div class="artwork-content">
+                            <img src="./img/img10.jpeg" alt="死侍">
+                            <div class="artwork-info">
+                                <h3>死侍</h3>
+                                <p>話癆雇傭兵，不死之身。韋德威爾遜以其獨特的幽默感和打破第四面牆的特點，成為了最受歡迎的反英雄之一。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artwork-slide">
+                        <div class="artwork-content">
+                            <img src="./img/img11.jpeg" alt="月光騎士">
+                            <div class="artwork-info">
+                                <h3>月光騎士</h3>
+                                <p>康舒的復仇者。馬克史佩特擁有多重人格，在月神康舒的賦予下，成為了黑夜中的守護者。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav prev">←</button>
+                <button class="slider-nav next">→</button>
+            </section>
+        </main>
+
+        <div class="project-navigation">
+            <a href="board-game.html">← 上一個作品</a>
+            <a href="coffee-machine.html">下一個作品 →</a>
+        </div>
+
+        <button id="musicToggle" class="control-btn" title="音樂控制">
+            <span class="music-on">🎵</span>
+            <span class="music-off">🔇</span>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicToggle = document.getElementById('musicToggle');
+            const slides = document.querySelectorAll('.artwork-slide');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentSlide = 0;
+
+            // 強制播放音樂
+            const playMusic = () => {
+                bgMusic.play().then(() => {
+                    musicToggle.classList.add('playing');
+                }).catch(() => {
+                    setTimeout(playMusic, 100);
+                });
+            };
+            
+            playMusic();
+
+            // 輪播控制
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+            // 入場動畫控制
+            setTimeout(() => {
+                document.querySelector('.loading-animation').style.opacity = '0';
+                document.querySelector('.content-wrapper').classList.remove('hidden');
+                setTimeout(() => {
+                    document.querySelector('.loading-animation').style.display = 'none';
+                }, 1000);
+            }, 3000);
+
+            // 音樂控制
+            musicToggle.addEventListener('click', () => {
+                if (bgMusic.paused) {
+                    bgMusic.play();
+                    musicToggle.classList.add('playing');
+                } else {
+                    bgMusic.pause();
+                    musicToggle.classList.remove('playing');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>創新互動桌遊設計 - 作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="board-game.css">
+    <audio id="bgMusic" loop autoplay>
+        <source src="./video/sentimental-piano-162200.mp3" type="audio/mp3">
+    </audio>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-heading">作品集</div>
+        <div class="nav-buttons">
+            <a href="index.html"><button>返回首頁</button></a>
+        </div>
+    </nav>
+
+    <main class="project-page">
+        <!-- 飄落的花朵 -->
+        <div class="falling-flowers">
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+        </div>
+
+        <div class="content-card sketch-section">
+            <h2>設計成品</h2>
+            <div class="sketch-container">
+                <img src="./img/img3.jpg" alt="設計草圖">
+            </div>
+            <div class="project-description">
+                
+                <h2>遊戲特色</h2>
+                <ul>
+                    <li>互動式遊戲機制</li>
+                    <li>創新玩法設計</li>
+                    <li>精美視覺風格</li>
+                </ul>
+
+                <h2>遊戲規則</h2>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <h3>基本設置</h3>
+                        <p>2-4人遊戲，適合12歲以上玩家</p>
+                    </div>
+                    <div class="rule-item">
+                        <h3>遊戲流程</h3>
+                        <p>回合制策略遊戲</p>
+                    </div>
+                    <div class="rule-item">
+                        <h3>勝利條件</h3>
+                        <p>首位達成任務目標者獲勝</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="mini-game">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="score-display">
+                    <span class="score-label">已綻放</span>
+                    <span class="score-number"><span id="flowerCount">0</span> / 20</span>
+                </div>
+                <div class="game-title">魔法花園</div>
+                <div class="game-controls">
+                    <button id="resetGame" class="control-btn" title="重新開始">🌱</button>
+                    <button id="musicToggle" class="control-btn" title="音樂控制">
+                        <span class="music-on">🎵</span>
+                        <span class="music-off"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="game-scene">
+                <div class="background-elements">
+                    <div class="clouds"></div>
+                    <div class="stars"></div>
+                </div>
+                <div class="tree">
+                    <div class="tree-trunk"></div>
+                    <div class="flowers-container"></div>
+                </div>
+                <div class="particle-container"></div>
+            </div>
+            
+            <div class="game-footer">
+                <div class="game-instructions">
+                    <div class="instruction-text">點擊畫面，在魔法樹上綻放美麗的花朵</div>
+                    <div class="bonus-text">✨ 快速連續點擊可以釋放特殊魔法 ✨</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card model-section">
+        <h2>草圖</h2>
+        <div class="model-container">
+            <div class="model-item">
+                <img src="./img/img13.jpg" alt="草圖">
+            </div>
+        </div>
+        <h2>電腦建模</h2>
+        <div class="model-container">
+            <div class="model-item">
+                <img src="./img/img14.jpg" alt="建模圖">
+            </div>
+        </div>
+    </div>
+
+        <div class="content-card description-section">
+            <h2>設計說明</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">每位玩家選一個顏色代表自己</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">遊戲中有兩個骰子，一個骰樹枝的，一個骰花朵與干擾物(鳥)的</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">猜拳決定誰先開始</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">都是先骰樹枝骰，除非骰到交換，不然都是骰樹枝的骰子</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">骰到扣樹枝能把其他玩家的樹枝拿下，骰到扣花，則拿下自己的一朵花</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">若自己顏色的樹枝都在樹上，直接骰花的色子</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">7</div>
+                    <div class="step-content">若骰到扣樹枝，但樹上有花，可以將花留下</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">8</div>
+                    <div class="step-content">花只能放在相同顏色的樹枝上</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">9</div>
+                    <div class="step-content">最先完成放上三朵花者獲勝</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="project-footer">
+        <div class="project-navigation">
+            <a href="coffee-machine.html" class="prev-project">← 上一個作品</a>
+            <a href="manga.html" class="next-project">下一個作品 →</a>
+        </div>
+    </footer>
+
+    <script src="board-game.js"></script>
+</body>
+</html>

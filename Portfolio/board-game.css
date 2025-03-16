@@ -1,0 +1,684 @@
+/* 可愛風格主題色 - 更新配色 */
+:root {
+    --bg-pink: #FFF0F5;
+    --pastel-blue: #CCE5FF;
+    --pastel-green: #BDFCC9;
+    --pastel-yellow: #FFF4CC;
+    --warm-brown: #8B4513;
+    --text-brown: #5C4033;
+    --accent-pink: #FFB7C5;
+    --accent-purple: #E6E6FA;
+}
+
+/* 頁面基礎樣式 */
+.project-page {
+    background: var(--bg-pink);
+    padding: 2rem;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* 背景圓圈裝飾 */
+.circle-decoration {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--pastel-blue);
+    top: -100px;
+    left: -100px;
+}
+
+.circle-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--pastel-green);
+    top: 30%;
+    right: -50px;
+}
+
+.circle-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--pastel-yellow);
+    bottom: -50px;
+    left: 20%;
+}
+
+/* 標題樣式 */
+.project-header {
+    text-align: center;
+    margin: 4rem 0;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.project-header h1 {
+    font-family: "Noto Serif TC", serif;
+    color: var(--text-brown);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.subtitle {
+    color: var(--text-brown);
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* 內容卡片樣式 - 更可愛的設計 */
+.content-card {
+    background: white;
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 25px rgba(255, 183, 197, 0.2);
+    position: relative;
+    z-index: 1;
+    border: 2px solid rgba(255, 183, 197, 0.3);
+}
+
+/* 所有圖片的通用圓角樣式 */
+img {
+    border-radius: 15px;
+}
+
+/* 設計說明區域 */
+.description-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+}
+
+/* 步驟說明樣式 */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-item {
+    background: linear-gradient(135deg, white, var(--pastel-yellow));
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(255, 183, 197, 0.3);
+}
+
+.step-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 183, 197, 0.3);
+}
+
+.step-number {
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
+    background: var(--accent-pink);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transform: rotate(-10deg);
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.3);
+    border: 2px solid white;
+}
+
+.step-item:nth-child(2n) .step-number {
+    transform: rotate(8deg);
+}
+
+.step-item:nth-child(3n) .step-number {
+    transform: rotate(-5deg);
+}
+
+.step-item:nth-child(4n) .step-number {
+    transform: rotate(12deg);
+}
+
+.step-item:hover .step-number {
+    transform: rotate(0deg) scale(1.1);
+    transition: all 0.3s ease;
+}
+
+.step-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    border-radius: inherit;
+}
+
+.step-content {
+    margin-top: 0.5rem;
+    text-align: left;
+    color: var(--text-brown);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 10px;
+}
+
+/* 標題樣式 - 更可愛的字體和裝飾 */
+.content-card h2 {
+    color: var(--text-brown);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: "Noto Serif TC", serif;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 2rem;
+}
+
+.content-card h2::before,
+.content-card h2::after {
+    content: '✿';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+}
+
+.content-card h2::before {
+    left: 0;
+}
+
+.content-card h2::after {
+    right: 0;
+}
+
+/* 圖片容器樣式 - 更可愛的效果 */
+.sketch-container,
+.model-container {
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sketch-container img,
+.model-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.sketch-container img:hover,
+.model-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 183, 197, 0.3);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .content-card {
+        padding: 1.5rem;
+    }
+    
+    .step-content {
+        font-size: 0.95rem;
+    }
+    
+    .sketch-container,
+    .model-container {
+        max-width: 100%;
+    }
+    
+    .content-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* 飄落的花朵動畫 */
+@keyframes falling {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+}
+
+.falling-flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flower {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFB7C5' d='M50,0 C60,20 80,20 100,50 C80,80 60,80 50,100 C40,80 20,80 0,50 C20,20 40,20 50,0'/%3E%3C/svg%3E");
+    background-size: contain;
+    opacity: 0.6;
+    filter: drop-shadow(0 2px 4px rgba(255, 183, 197, 0.3));
+}
+
+/* 生成多個花朵並設置不同的動畫時間和延遲 */
+.flower:nth-child(1) { left: 10%; animation: falling 10s linear infinite, sway 3s ease-in-out infinite; }
+.flower:nth-child(2) { left: 30%; animation: falling 8s linear infinite 2s, sway 4s ease-in-out infinite; }
+.flower:nth-child(3) { left: 50%; animation: falling 12s linear infinite 1s, sway 3.5s ease-in-out infinite; }
+.flower:nth-child(4) { left: 70%; animation: falling 9s linear infinite 3s, sway 4.5s ease-in-out infinite; }
+.flower:nth-child(5) { left: 90%; animation: falling 11s linear infinite 2.5s, sway 3.8s ease-in-out infinite; }
+.flower:nth-child(6) { left: 15%; animation: falling 13s linear infinite 1.5s, sway 3.2s ease-in-out infinite; }
+.flower:nth-child(7) { left: 45%; animation: falling 9s linear infinite 2.8s, sway 3.7s ease-in-out infinite; }
+.flower:nth-child(8) { left: 75%; animation: falling 11s linear infinite 3.5s, sway 4.2s ease-in-out infinite; }
+
+/* 添加可愛的裝飾元素 */
+.content-card::before {
+    content: '♡';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.content-card::after {
+    content: '♡';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+/* 遊戲特色區域 */
+.project-description {
+    padding: 2rem;
+    background: linear-gradient(135deg, white, var(--pastel-yellow));
+    border-radius: 20px;
+    margin-top: 2rem;
+    border: 2px solid rgba(255, 183, 197, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 特色列表樣式 */
+.project-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.project-description li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-brown);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.project-description li::before {
+    content: '🌸';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+/* 規則網格樣式 */
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.rule-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 183, 197, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 183, 197, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.rule-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 183, 197, 0.25);
+}
+
+.rule-item h3 {
+    color: var(--text-brown);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.rule-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--accent-pink);
+    border-radius: 2px;
+}
+
+.rule-item p {
+    color: var(--text-brown);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .rule-item {
+        padding: 1.2rem;
+    }
+    
+    .project-description li {
+        font-size: 1rem;
+    }
+}
+
+/* 小遊戲區域樣式 */
+.mini-game {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.game-container {
+    background: linear-gradient(180deg, #fce4ec 0%, #f3e5f5 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 遊戲頭部樣式 */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(5px);
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 分數顯示更新 */
+.score-display {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.score-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.score-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* 遊戲場景 */
+.game-scene {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景元素 */
+.background-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.6) 0%, transparent 40%);
+    animation: floatClouds 20s linear infinite;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff 100%, transparent),
+        radial-gradient(2px 2px at 40px 70px, #fff 100%, transparent),
+        radial-gradient(2px 2px at 50px 160px, #fff 100%, transparent),
+        radial-gradient(2px 2px at 90px 40px, #fff 100%, transparent);
+    background-repeat: repeat;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+/* 樹的樣式更新 */
+.tree-trunk {
+    width: 30px;
+    height: 200px;
+    background: linear-gradient(to right, #8B4513, #A0522D);
+    border-radius: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+/* 花朵容器更新 */
+.flowers-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* 遊戲底部 */
+.game-footer {
+    padding: 1rem;
+    background: rgba(255,255,255,0.9);
+    text-align: center;
+}
+
+.game-instructions {
+    color: var(--accent-pink);
+}
+
+.instruction-text {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.bonus-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 動畫 */
+@keyframes floatClouds {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* 更新花朵動畫 */
+.flower {
+    animation: 
+        bloomIn 0.6s ease-out forwards,
+        float 3s ease-in-out infinite;
+}
+
+@keyframes bloomIn {
+    from {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 音樂控制按鈕 - 固定在右下角 */
+#musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+#musicToggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
+}
+
+/* 專案導航樣式更新 */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    gap: 1rem;
+}
+
+.prev-project,
+.next-project {
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--gradient-2);
+    font-size: 0.9rem;
+}
+
+.prev-project:hover,
+.next-project:hover {
+    background: white;
+    color: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .project-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .prev-project,
+    .next-project {
+        width: 100%;
+        text-align: center;
+    }
+}

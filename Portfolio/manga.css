@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 普普藝術風格變量 */
+:root {
+    --pop-red: #FF3B3B;
+    --pop-yellow: #FFD93D;
+    --pop-blue: #4D77FF;
+    --pop-black: #1A1A1A;
+    --pop-dots: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='1' fill='%23000' fill-opacity='0.1'/%3E%3C/svg%3E");
+}
+
+body {
+    background: var(--pop-black);
+    color: white;
+    font-family: 'Bangers', 'Noto Sans TC', cursive;
+}
+
+/* 入場動畫 */
+.loading-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 1s ease;
+}
+
+.comic-panel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #2a2a2a 0%, var(--pop-black) 100%);
+    overflow: hidden;
+}
+
+.boom, .pow, .zap, .bang, .splash {
+    position: absolute;
+    font-size: 6rem;
+    font-family: 'Permanent Marker', cursive;
+    animation: popIn 0.8s ease-out forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+.boom {
+    color: var(--pop-red);
+    top: 30%;
+    left: 20%;
+    --rotation: -15deg;
+    animation-delay: 0s;
+}
+
+.pow {
+    color: var(--pop-blue);
+    top: 50%;
+    right: 25%;
+    --rotation: 15deg;
+    animation-delay: 0.2s;
+}
+
+.zap {
+    color: var(--pop-yellow);
+    bottom: 30%;
+    left: 35%;
+    --rotation: -5deg;
+    animation-delay: 0.4s;
+}
+
+.bang {
+    color: #FF6B6B;
+    top: 40%;
+    right: 40%;
+    --rotation: 20deg;
+    animation-delay: 0.6s;
+}
+
+.splash {
+    color: #4ECDC4;
+    bottom: 40%;
+    right: 30%;
+    --rotation: -10deg;
+    animation-delay: 0.8s;
+}
+
+.comic-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: starTwinkle 2s infinite;
+}
+
+/* 作品展示輪播 */
+.artwork-slider {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.artwork-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artwork-slide.active {
+    opacity: 1;
+}
+
+.artwork-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1400px;
+    padding: 2rem;
+}
+
+.artwork-content img {
+    max-height: 75vh;
+    width: auto;
+    object-fit: contain;
+    border: 8px solid var(--pop-yellow);
+    box-shadow: 20px 20px 0 rgba(255, 59, 59, 0.3);
+    margin-bottom: 1rem;
+}
+
+.artwork-info {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(26, 26, 26, 0.9);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid var(--pop-yellow);
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.artwork-info h3 {
+    font-size: 2rem;
+    color: #FFE4B5;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 0 var(--pop-red);
+}
+
+.artwork-info p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: white;
+    opacity: 0.9;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    background: rgba(26, 26, 26, 0.8);
+    color: var(--pop-yellow);
+    border: 3px solid var(--pop-yellow);
+    font-size: 3rem;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.slider-nav:hover {
+    background: var(--pop-yellow);
+    color: var(--pop-black);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* 動畫 */
+@keyframes popIn {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.4) rotate(var(--rotation));
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(var(--rotation));
+        opacity: 1;
+    }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* 主要內容樣式 */
+.content-wrapper {
+    padding-top: 80px;
+}
+
+.project-content {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+/* 作品展示網格 */
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin: 3rem 0;
+    padding: 0 2rem;
+}
+
+.artwork-item {
+    position: relative;
+    overflow: hidden;
+    border: 8px solid var(--pop-black);
+    box-shadow: 15px 15px 0 var(--pop-yellow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.artwork-item:hover {
+    transform: translate(-10px, -10px);
+    box-shadow: 25px 25px 0 var(--pop-yellow);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.artwork-item:hover img {
+    transform: scale(1.1);
+}
+
+.artwork-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--pop-black);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.artwork-overlay h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--pop-yellow);
+}
+
+.artwork-overlay p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 標題樣式 */
+h1, h2 {
+    font-family: 'Bangers', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--pop-black);
+    text-shadow: 3px 3px 0 var(--pop-yellow);
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 5.5rem;
+    color: #FFE4B5;
+    text-shadow: 
+        3px 3px 0 var(--pop-red),
+        6px 6px 0 var(--pop-black);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    margin: 4rem 0;
+    color: var(--pop-black);
+    text-shadow: 3px 3px 0 var(--pop-yellow);
+}
+
+.project-meta {
+    text-align: center;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.2rem;
+    color: #FFE4B5;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.project-meta span {
+    margin: 0 1rem;
+}
+
+.process-content p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 導航按鈕 */
+.project-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 2px solid var(--pop-yellow);
+}
+
+.project-navigation a {
+    text-decoration: none;
+    color: var(--pop-yellow);
+    padding: 1rem 2rem;
+    border: 3px solid var(--pop-yellow);
+    background: rgba(26, 26, 26, 0.8);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.project-navigation a:hover {
+    background: var(--pop-yellow);
+    color: var(--pop-black);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 217, 61, 0.3);
+}
+
+/* 響應式調整 */
+@media (max-width: 1200px) {
+    .artwork-content img {
+        max-height: 65vh;
+    }
+    
+    .artwork-info {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .artwork-content img {
+        max-height: 50vh;
+    }
+    
+    .artwork-info {
+        max-width: 90%;
+    }
+}
